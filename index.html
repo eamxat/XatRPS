@@ -9,6 +9,18 @@
     
     <style>
         /* =========================================
+           RESET TOTAL - AISLAMIENTO COMPLETO
+           ========================================= */
+        #xat-rps-root {
+            all: initial;
+            display: contents;
+        }
+
+        #xat-rps-root * {
+            all: revert;
+        }
+
+        /* =========================================
            VARIABLES Y CONFIGURACIÓN GENERAL
            ========================================= */
         :root {
@@ -25,6 +37,8 @@
         html {
             height: 100%;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         * {
@@ -44,7 +58,14 @@
             justify-content: center;
             color: var(--text-main);
             overflow: hidden; 
-            touch-action: manipulation; 
+            touch-action: manipulation;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none;
         }
 
         /* =========================================
@@ -62,6 +83,8 @@
             justify-content: center;
             align-items: center;
             transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+            margin: 0;
+            padding: 0;
         }
 
         .loading-content {
@@ -74,9 +97,9 @@
 
         .loading-logo {
             width: 90%;
-            max-width: 550px; /* 35% más grande que el max-width original */
+            max-width: 550px;
             height: auto;
-            max-height: 40vh; /* Mayor altura permitida */
+            max-height: 40vh;
             object-fit: contain;
             margin-bottom: 50px;
             filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6)) drop-shadow(0 0 25px rgba(0, 210, 255, 0.4));
@@ -100,7 +123,7 @@
             background: linear-gradient(90deg, #00d2ff, #3a7bd5);
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.8);
-            transition: width 0.1s linear; /* Para una animación de llenado fluida */
+            transition: width 0.1s linear;
         }
 
         .loading-text {
@@ -132,7 +155,7 @@
            BOTONES SUPERIORES (Estilo Imagen)
            ========================================= */
         .top-bar {
-            position: absolute;
+            position: fixed;
             top: max(15px, 2vh);
             left: 20px;
             right: 20px;
@@ -542,7 +565,7 @@
            FIRMA
            ========================================= */
         .signature {
-            position: absolute;
+            position: fixed;
             bottom: max(10px, 1.5vh);
             right: 20px;
             font-size: 0.65rem;
